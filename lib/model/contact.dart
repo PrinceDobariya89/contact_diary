@@ -1,14 +1,13 @@
 class Contact {
-  int? id;
-  late String firstname;
-  late String lastname;
-  late int phone;
-  late String email;
+  String firstname;
+  String lastname;
+  String phone;
+  String email;
+  String? image;
   Contact(
-      {required this.id,
-        required this.firstname,
+      {required this.firstname,
       required this.lastname,
       required this.phone,
-      required this.email});
-
+      required this.email,
+      this.image});
 }

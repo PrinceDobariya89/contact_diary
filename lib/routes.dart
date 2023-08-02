@@ -11,28 +11,34 @@ Route genrateRoute(RouteSettings settings) {
 
   switch (settings.name) {
     case contactsRoute:
-      return MaterialPageRoute(builder: (_) => const ContactScreen());
+      return MaterialPageRoute(builder: (context) => const ContactScreen());
     case addeditRoute:
       return MaterialPageRoute(
-          builder: (_) => args.isEmpty
-              ? const AddContactScreen()
+          builder: (context) => args.isEmpty
+              ? AddContactScreen()
               : AddContactScreen(
-                id: args['id'],
                   efullname: args['efullname'],
                   eemail: args['eemail'],
                   ephone: args['ephone'],
-                  edit: args['edit'],
+                  eimage: args['eimage'],
+                  index: args['index'],
                 ));
     case contactsDetailRoute:
       return MaterialPageRoute(
-          builder: (_) => ContactDetailScreen(
-              id: args['id'],
-              fullname: args['fullname'],
-              email: args['email'],
-              phone: args['phone']));
+          builder: (context) => ContactDetailScreen(
+                fullname: args['fullname'],
+                email: args['email'],
+                phone: args['phone'],
+                image: args['image'],
+                index: args['index'],
+              ));
     default:
       return MaterialPageRoute(
-        builder: (context) => const Scaffold(body: Center(child: Text('Not Found'),),),
+        builder: (context) => const Scaffold(
+          body: Center(
+            child: Text('Page Not Found...'),
+          ),
+        ),
       );
   }
 }
